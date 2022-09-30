@@ -15,7 +15,11 @@ public class ControladorCliente {
    @GetMapping
     public List<Cliente> consultaClienter(){
 
+
        return sc.listasClientes();
+
+
+
 
    }
 
@@ -25,11 +29,29 @@ public class ControladorCliente {
    }
 
 
+   @GetMapping("buscarnombre/{nom}")
+   public Cliente consultarPorNombre(@PathVariable("nom") String nom){
+
+       return  sc.consultarPorNombre(nom);
+   }
+
+   @GetMapping("buscardos/{nombre}")
+   public  Cliente buscranombre(@PathVariable("nombre") String nombre){
+       return  sc.buscarpornombre(nombre);
+   }
+
+
+
    @PostMapping
     public Cliente insertarClientes(@RequestBody Cliente cliente){
 
        return sc.guardarCliente(cliente);
    }
+
+
+
+
+
    @PutMapping
     public Cliente actualizarCliente(@RequestBody Cliente cliente){
 

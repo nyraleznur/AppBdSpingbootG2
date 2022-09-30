@@ -45,7 +45,12 @@ public class ServiciosCliente {
         rc.deleteById(documento);
     }
 
-
+    public Cliente consultarPorNombre(String nombre){
+        return  rc.findByNombre(nombre);
+    }
+    public Cliente buscarpornombre(String nombre){
+        return  rc.buscarpornombre(nombre);
+    }
 
 
 

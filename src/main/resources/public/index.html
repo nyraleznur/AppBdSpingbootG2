@@ -15,4 +15,35 @@
 <div id="contenedor"></div>
 
 </body>
-</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div  class="container unauthenticated">
+      para iniciar sesion con git
+    <a href="/oauth2/authorization/github">Click aqui</a>
+</div>
+
+<div class="container authenticated" style="display:none" id="a">
+    Autenticado como :<span id="user"></span>
+    <a href="gestioncliente.html">Ingresar</a>
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+    $.get("/user",function(data){
+    $("#user").html(data.name);
+    $(".unauthenticated").hide()
+    $(".authenticated").show()
+
+    });
+
+</script >
+
